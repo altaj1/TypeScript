@@ -196,6 +196,77 @@ const sumNumbers = (...numbers : number[]):number =>{
 console.log(numbers)
 return numbers.reduce((total, num) => total +num)
 }
-console.log(sumNumbers(1,2,3,4,5))
+// console.log(sumNumbers(1,2,3,4,5))
+
+// 7) 
+type AssertionType = number |string;
+const assertionFun =(num1: AssertionType, num2: AssertionType):AssertionType =>{
+    if (typeof num1 ==="number" && typeof num2 ==="number") {
+        return num1 +num2;
+    }else{
+        return num1.toString() +num2.toString()
+    }
+}
+// console.log(assertionFun(3, "3"))
+
+// 8) 
+type UserType = {
+    name:string;
+    email:string;
+}
+type AdminType ={
+    adminLevel:number;
+}
+type IntersectionType = UserType & AdminType;
+const adminUser:IntersectionType = {
+name:"jon do",
+email:"jon@gmail.com",
+adminLevel:12
+}
+const intersectionFun = (interfaceUser : IntersectionType):string =>{
+    return `the user name ${interfaceUser.name}, email:${interfaceUser.email} level:${interfaceUser.adminLevel}`
+}
+// console.log(intersectionFun(adminUser))
+
+// 9)
+type EmployeeType = {
+    name:string;
+    email:string;
+    address?:{
+        city?:string
+    }
+}
+
+const getEmployeeCity =(employer:EmployeeType): string | undefined =>{
+   if (employer.address?.city === undefined) {
+    return undefined
+   }else{
+    return employer.address.city
+   }
+}
+const cityEmployer: EmployeeType ={
+    name:"Al Taj",
+    email:"altaj1019@gmail.com",
+    address:{
+        city:"Dhaka"
+    }
+}
+// console.log(getEmployeeCity(cityEmployer))
+
+const employer2: EmployeeType ={
+    name:"Taj",
+    email:"taj1019@gmail.com",
+}
+// console.log(getEmployeeCity(employer2))
+
+// 10) 
+function getDisplayName(name: string | null | undefined): string {
+    return name ?? "Anonymous";
+  }
+//   console.log(getDisplayName("Alice")); 
+// console.log(getDisplayName(null));   
+// console.log(getDisplayName(undefined)); 
+
+
 // 
 }
