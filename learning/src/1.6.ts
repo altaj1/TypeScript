@@ -267,6 +267,25 @@ function getDisplayName(name: string | null | undefined): string {
 // console.log(getDisplayName(null));   
 // console.log(getDisplayName(undefined)); 
 
-
+const processData =(value : unknown) : string | number| undefined =>{
+    if (typeof value ==="string") {
+       return value.toUpperCase()
+    }else if(typeof value === "number") {
+        // return parseInt(value) * parseInt(value)
+        return value *value
+    }else{
+        return undefined
+    }
+}
+console.log(processData(0))
+// 12) 
+const handleError =  (message: string): never =>{
+    throw new Error(message)
+}
+// try {
+//     handleError("An unexpected error occurred");
+// } catch (error) {
+//     console.error(error)
+// }
 // 
 }
