@@ -277,7 +277,7 @@ const processData =(value : unknown) : string | number| undefined =>{
         return undefined
     }
 }
-console.log(processData(0))
+// console.log(processData(0))
 // 12) 
 const handleError =  (message: string): never =>{
     throw new Error(message)
@@ -287,5 +287,26 @@ const handleError =  (message: string): never =>{
 // } catch (error) {
 //     console.error(error)
 // }
+// 13) 
+const removeDuplicates = <T> (array: T[]) : T[] =>{
+    const result : T[] = [];
+    for (let i = 0; i < array.length; i++) {
+        let isDuplicate = false;
+        for (let j = 0; j < array.length; j++) {
+            if (array[i] === result[j]) {
+                    isDuplicate = true;
+                    break; 
+            }
+          
+        }
+        if (!isDuplicate) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+const numberArray = [1, 2, 2, 3, 4, 4, 5];
+const uniqueNumbers = removeDuplicates(numberArray);
+console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
 // 
 }
