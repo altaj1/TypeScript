@@ -307,6 +307,34 @@ const removeDuplicates = <T> (array: T[]) : T[] =>{
 }
 const numberArray = [1, 2, 2, 3, 4, 4, 5];
 const uniqueNumbers = removeDuplicates(numberArray);
-console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+// console.log(uniqueNumbers); 
+
+// 14)
+
+type TypeUser = {
+    name: string;
+    age: number;
+}
+const  fetchUserData = async (userData: TypeUser) : Promise<TypeUser> =>{
+    return new Promise<TypeUser> =>{
+        setTimeout(()=>{
+            const userData: User = {
+                name: "John Doe",
+                age: 30
+            };
+            resolve(userData); 
+        }, 2000)
+    }
+}
+
+const getUserData = async (fetchUserData) => {
+    try {
+        const user = await fetchUserData({ name: 'John Doe', age: 30 });
+        console.log("Fetched User Data:", user); 
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+    }
+};
+getUserData(fetchUserData);
 // 
 }
