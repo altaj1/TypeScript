@@ -315,26 +315,28 @@ type TypeUser = {
     name: string;
     age: number;
 }
-const  fetchUserData = async (userData: TypeUser) : Promise<TypeUser> =>{
-    return new Promise<TypeUser> =>{
-        setTimeout(()=>{
-            const userData: User = {
-                name: "John Doe",
-                age: 30
-            };
-            resolve(userData); 
+const  fetchUserData = async () : Promise<TypeUser> =>{
+    return new Promise (resolve =>{
+        setTimeout (()=>{
+            const user : TypeUser={
+                name: "Al Taj",
+                age:24,
+            }
+            resolve(user)
+
         }, 2000)
+    }) 
+}
+
+const getUser = async ()=>{
+    try {
+        const user = await fetchUserData();
+console.log(user)
+    } catch (error) {
+        console.error("Failed to fetch user data:", error);
     }
 }
 
-const getUserData = async (fetchUserData) => {
-    try {
-        const user = await fetchUserData({ name: 'John Doe', age: 30 });
-        console.log("Fetched User Data:", user); 
-    } catch (error) {
-        console.error("Error fetching user data:", error);
-    }
-};
-getUserData(fetchUserData);
+console.log(getUser())
 // 
 }
