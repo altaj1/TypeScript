@@ -50,6 +50,45 @@
 
     const student1 = new Student("Mr. student", 20, "Uganda");
     const teacher1 = new Teacher("Mr. teacher", 40, "Uganda", "proffessor");
-    console.log(teacher1.takeClass(7))
+    // console.log(teacher1.takeClass(7))
+
+    // typeof --> type guard
+
+    type Alphaneumeric = string | number;
+    const addFun = (param1 : Alphaneumeric, param2: Alphaneumeric): Alphaneumeric=>{
+        if (typeof param1 === "number" && typeof param2 === "number") {
+            return param1 + param2;
+        }else{
+            return param1.toString() + param2.toString();
+        }
+    }
+    // const result1 = addFun("2", "3");
+   
+      // in guard
+
+      type NormalUser = {
+        name: string;
+      }
+      type AdminUser = {
+        name: string;
+        role: "admin"
+      }
+
+      const getUser =(user: NormalUser| AdminUser)=>{
+        if ("role" in user) {
+            console.log(`My name is ${user.name} and my role is ${user.role}`);
+        }else {
+            console.log(`My name is ${user.name}`);
+          }
+      }
+      const normalUser :NormalUser = {
+        name: "Al Taj"
+      }
+      const adminUser : AdminUser ={
+        name: "Mr. Admin",
+        role: "admin"
+      }
+// getUser(adminUser)
+
     // 
 }
