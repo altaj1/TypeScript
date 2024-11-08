@@ -23,6 +23,13 @@
           }
     }
     const  toyotaCar = new Ccar1();
-    toyotaCar.startEngine();
-    
+    // toyotaCar.startEngine();
+
+
+  // abstract class
+
+  abstract class Ccar2 {
+   abstract startEngine():void;
+  }
+
 }
