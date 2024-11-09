@@ -30,6 +30,24 @@
 
   abstract class Ccar2 {
    abstract startEngine():void;
+   abstract stopEngine():void;
+   abstract move():void;
+   test(){
+    console.log(`I am just testing`);
+   }
+  }
+  class ToyotaCar extends Ccar2{
+    startEngine(): void {
+      console.log("this is start engine")
+    }
+    stopEngine(): void {
+      console.log("this is stop engine")
+    }
+    move(): void {
+      console.log("This is move engine")
+    }
   }
 
+  const amarCar = new ToyotaCar();
+  console.log(amarCar.startEngine())
 }
